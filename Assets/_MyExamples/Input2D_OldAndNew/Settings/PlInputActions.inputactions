@@ -1,0 +1,84 @@
+{
+    "name": "PlInputActions",
+    "maps": [
+        {
+            "name": "Battle",
+            "id": "28073092-4d16-4fc2-bce9-75228bf35291",
+            "actions": [
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "e9a9112f-e660-4dbd-88a6-778771473cba",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d43cc5ea-1337-4a37-b16b-8b4b97739159",
+                    "path": "<Keyboard>/shift",
+                    "interactions": "",
+                    "processors": "Invert",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0466a0e5-56d6-443f-8d82-65a2b2f30c1b",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Move",
+            "id": "b8d8c3fa-04fa-41ef-bbf2-30b26ca20167",
+            "actions": [
+                {
+                    "name": "WalkLR",
+                    "type": "Value",
+                    "id": "b095db79-399e-4b96-bd19-4600e4adc2c4",
+                    "expectedControlType": "Analog",
+                    "processors": "Scale",
+                    "interactions": "Press",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c78e4a0f-b5fe-474b-a149-6d2c6426574c",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "Press",
+                    "processors": "Invert",
+                    "groups": "",
+                    "action": "WalkLR",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6ace8a2d-13cd-4624-8df9-e322d3b5bb0c",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "WalkLR",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
