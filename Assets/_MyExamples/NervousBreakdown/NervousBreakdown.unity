@@ -204,6 +204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 128407166}
   - component: {fileID: 128407167}
+  - component: {fileID: 128407168}
   m_Layer: 5
   m_Name: CardStage
   m_TagString: Untagged
@@ -306,6 +307,72 @@ MonoBehaviour:
   m_Spacing: {x: 10, y: 10}
   m_Constraint: 1
   m_ConstraintCount: 13
+--- !u!114 &128407168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128407165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86f590a4a3e084dbca8a8ca2c75d2490, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardSprites:
+  - {fileID: 1196482633, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -2062084435, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -247050972, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -191148, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -83433543, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -830661443, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 516618575, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -338137787, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -1048203369, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -434033711, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 310629083, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -612663879, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -1605729233, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -1728599899, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 1846766037, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -47352680, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -1736630800, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -1377704639, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 303799466, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -768312029, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -491381588, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -849478204, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -527562250, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -415988898, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 956696383, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 1259478685, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 418182513, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 1560605294, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 1983446824, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -1327860413, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 1194296679, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 1244316347, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 838730617, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 1294814850, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -1136873873, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 567987658, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -1186668802, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -486117616, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 1746066248, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -1181179795, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 506707983, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 415156854, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -130975606, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 1532818459, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -2134447492, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 1062361964, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 971397793, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 1182124034, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 805451399, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 23611562, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: 2014929869, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  - {fileID: -827521970, guid: 61eef3cb69fdb445eb0470bb3e26a78a, type: 3}
+  cardStage: {fileID: 128407166}
 --- !u!1 &155856855
 GameObject:
   m_ObjectHideFlags: 0
