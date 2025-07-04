@@ -1,6 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +11,9 @@ public class GameManager : MonoBehaviour
 
     [Header("カードを並べる親オブジェクト(CardStage)")]
     public Transform cardStage;
+
+    private List<NervousBreakdownCard> flippedCards = new List<NervousBreakdownCard>();
+    private bool isChecking = false;
 
     // シーン開始時に呼ばれる
     void Start()
@@ -100,5 +105,126 @@ public class GameManager : MonoBehaviour
                     img.sprite = assignList[i];
             }
         }
+    }
+
+    /// <summary>
+    /// カードがクリックされた時に呼ばれる
+    /// </summary>
+    public void OnCardClicked(NervousBreakdownCard card)
+    {
+        // チェック中または2枚すでにめくられている場合は処理しない
+        if (isChecking || flippedCards.Count >= 2)
+            return;
+
+        flippedCards.Add(card);
+
+        // 2枚めくられた場合の処理
+        if (flippedCards.Count == 2)
+        {
+            StartCoroutine(CheckMatch());
+        }
+    }
+
+    /// <summary>
+    /// 2枚のカードが一致するかチェックする
+    /// </summary>
+    private System.Collections.IEnumerator CheckMatch()
+    {
+        isChecking = true;
+        
+        // すべてのカードのクリックを無効化
+        SetAllCardsClickable(false);
+
+        // 少し待機（プレイヤーがカードを確認する時間）
+        yield return new WaitForSeconds(1.0f);
+
+        NervousBreakdownCard card1 = flippedCards[0];
+        NervousBreakdownCard card2 = flippedCards[1];
+
+        // スプライト名から数字を抽出して比較
+        string num1 = ExtractNumberFromSpriteName(card1.GetFrontSprite().name);
+        string num2 = ExtractNumberFromSpriteName(card2.GetFrontSprite().name);
+
+        if (num1 == num2)
+        {
+            // 一致した場合：カードを無効化（スプライトをnullに）
+            card1.DisableCard();
+            card2.DisableCard();
+            Debug.Log("マッチしました！");
+        }
+        else
+        {
+            // 一致しなかった場合：カードを裏返す
+            card1.ShowBack();
+            card2.ShowBack();
+            Debug.Log("マッチしませんでした");
+        }
+
+        // リセット
+        flippedCards.Clear();
+        isChecking = false;
+        
+        // 無効化されていないカードのクリックを有効化
+        SetAllCardsClickable(true);
+
+        // ゲーム終了チェック
+        CheckGameEnd();
+    }
+
+    /// <summary>
+    /// スプライト名から数字を抽出する
+    /// </summary>
+    private string ExtractNumberFromSpriteName(string spriteName)
+    {
+        string num = System.Text.RegularExpressions.Regex.Match(spriteName, @"(\d+)$").Value;
+        return string.IsNullOrEmpty(num) ? spriteName : num;
+    }
+
+    /// <summary>
+    /// すべてのカードのクリック可能状態を設定
+    /// </summary>
+    private void SetAllCardsClickable(bool clickable)
+    {
+        foreach (Transform child in cardStage)
+        {
+            var card = child.GetComponent<NervousBreakdownCard>();
+            if (card != null && !card.IsDisabled())
+            {
+                card.SetClickable(clickable);
+            }
+        }
+    }
+
+    /// <summary>
+    /// ゲーム終了チェック
+    /// </summary>
+    private void CheckGameEnd()
+    {
+        bool allDisabled = true;
+        foreach (Transform child in cardStage)
+        {
+            var card = child.GetComponent<NervousBreakdownCard>();
+            if (card != null && !card.IsDisabled())
+            {
+                allDisabled = false;
+                break;
+            }
+        }
+
+        if (allDisabled)
+        {
+            Debug.Log("ゲームクリア！");
+            StartCoroutine(RestartGame());
+        }
+    }
+
+    /// <summary>
+    /// ゲームクリア後にシーンをリロードする
+    /// </summary>
+    private IEnumerator RestartGame()
+    {
+        // 少し待機してからリロード
+        yield return new WaitForSeconds(2.0f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

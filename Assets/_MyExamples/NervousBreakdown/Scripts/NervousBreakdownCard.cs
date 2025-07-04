@@ -17,6 +17,10 @@ public class NervousBreakdownCard : MonoBehaviour, IPointerClickHandler
     private Image image;
     // カードが表かどうか
     private bool isFaceUp = false;
+    // カードが無効化されているかどうか
+    private bool isDisabled = false;
+    // カードがクリック可能かどうか
+    private bool canClick = true;
 
     void Awake()
     {
@@ -41,7 +45,17 @@ public class NervousBreakdownCard : MonoBehaviour, IPointerClickHandler
     /// <param name="eventData">クリックイベントデータ</param>
     public void OnPointerClick(PointerEventData eventData)
     {
+        // クリック不可能またはすでに無効化されている場合は何もしない
+        if (!canClick || isDisabled || isFaceUp) return;
+        
         ShowFront();
+        
+        // GameManagerに通知
+        GameManager gameManager = FindFirstObjectByType<GameManager>();
+        if (gameManager != null)
+        {
+            gameManager.OnCardClicked(this);
+        }
     }
 
     /// <summary>
@@ -76,5 +90,41 @@ public class NervousBreakdownCard : MonoBehaviour, IPointerClickHandler
     public bool IsFaceUp()
     {
         return isFaceUp;
+    }
+
+    /// <summary>
+    /// カードのスプライトを無効化します（ペアが揃った時）
+    /// </summary>
+    public void DisableCard()
+    {
+        isDisabled = true;
+        if (image != null)
+        {
+            image.sprite = null;
+        }
+    }
+
+    /// <summary>
+    /// カードのクリックを有効/無効にします
+    /// </summary>
+    public void SetClickable(bool clickable)
+    {
+        canClick = clickable;
+    }
+
+    /// <summary>
+    /// カードの表面スプライトを取得します
+    /// </summary>
+    public Sprite GetFrontSprite()
+    {
+        return frontSprite;
+    }
+
+    /// <summary>
+    /// カードが無効化されているかどうかを取得します
+    /// </summary>
+    public bool IsDisabled()
+    {
+        return isDisabled;
     }
 }

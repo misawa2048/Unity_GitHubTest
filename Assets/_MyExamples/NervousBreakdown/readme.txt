@@ -12,3 +12,10 @@ Assets/_MyExamples/NervousBreakdown/Scripts/ に、カードの動作を定義�
 作成した関数にはコメントも付けてください。
 
 GameManagerでカードのスプライトを割り当てる際、Assets/_MyExamples/NervousBreakdown/Scripts/NervousBreakdownCard.cs内の関数を使用して割り当ててください
+
+# CardPrefabにNervousBreakdownCard.csを追加
+
+ゲーム開始時、シャッフル後のカードを裏向きのままにしてください
+
+カードを２枚めくって、同じ数字であればカードのSpriteをnullにし、違っていれば２枚とも裏返してください。
+シーンスタートでゲームスタート、全てのカードをnullにしたらゲームクリア。同じシーンをロードしてください。
