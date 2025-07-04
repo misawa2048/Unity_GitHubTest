@@ -89,6 +89,8 @@ public class GameManager : MonoBehaviour
             {
                 // カードの表スプライトを割り当てる
                 card.SetSprites(assignList[i]);
+                // ゲーム開始時は裏向きにする
+                card.ShowBack();
             }
             else
             {
