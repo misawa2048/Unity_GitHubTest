@@ -1,5 +1,7 @@
 Assets/_MyExamples/NervousBreakdown/NervousBreakdown.unityに、神経衰弱のUIを用意してあります。
-まず初めに、Assets/_MyExamples/NervousBreakdown/ScriptsにGameManager.csを作成してください。
+まず初めに、内容を説明してください。
+
+Assets/_MyExamples/NervousBreakdown/ScriptsにGameManager.csを作成してください。
 GameManager.csの中に、Scene上のCardStageの下にあるCardImage群にランダムでカードのスプライトを割り当てる関数を用意してください。
 
 割り当てるカードは重複がないようにし、割り当てるカードがない場合は割り当てないようにしてください
