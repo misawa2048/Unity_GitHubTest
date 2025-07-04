@@ -84,8 +84,19 @@ public class GameManager : MonoBehaviour
         // 割り当て
         for (int i = 0; i < cardImages.Count; i++)
         {
-            Image img = cardImages[i].GetComponent<Image>();
-            img.sprite = assignList[i];
+            var card = cardImages[i].GetComponent<NervousBreakdownCard>();
+            if (card != null)
+            {
+                // カードの表スプライトを割り当てる
+                card.SetSprites(assignList[i]);
+            }
+            else
+            {
+                // 互換性のためImageのみの場合は従来通り
+                Image img = cardImages[i].GetComponent<Image>();
+                if (img != null)
+                    img.sprite = assignList[i];
+            }
         }
     }
 }

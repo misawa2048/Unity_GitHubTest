@@ -6,3 +6,9 @@ GameManager.csの中に、Scene上のCardStageの下にあるCardImage群にラ�
 
 GameManager内cardSpritesにはカードのスプライトが入っています。これらを全て使用してカード画像を割り当ててください。
 同じ画像のペアを用意するのではなく、スプライト名の後ろについている数字が同じであればペアとみなすようにしてください。
+
+Assets/_MyExamples/NervousBreakdown/Scripts/ に、カードの動作を定義するスクリプトを作成してください。
+カードに割り当てられたスプライトの初期値はカードの裏の絵柄です。スプライトを割り当てる関数、クリックされたときに割り当てられたスプライトを表示する関数、再度裏返した際に元の初期スプライトを表示する関数を作成してください。
+作成した関数にはコメントも付けてください。
+
+GameManagerでカードのスプライトを割り当てる際、Assets/_MyExamples/NervousBreakdown/Scripts/NervousBreakdownCard.cs内の関数を使用して割り当ててください
