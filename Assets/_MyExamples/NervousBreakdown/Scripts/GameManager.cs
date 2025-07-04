@@ -33,15 +33,44 @@ public class GameManager : MonoBehaviour
                 cardImages.Add(child);
         }
 
-        // カード枚数分のスプライトリストを作成（重複なし、ペア用に2枚ずつ）
-        List<Sprite> assignList = new List<Sprite>();
-        int pairCount = cardImages.Count / 2;
-        int maxPair = Mathf.Min(pairCount, cardSprites.Count); // cardSprites数を超えない
-        for (int i = 0; i < maxPair; i++)
+        // スプライト名の末尾の数字ごとにグループ化
+        var pairDict = new Dictionary<string, List<Sprite>>();
+        foreach (var sprite in cardSprites)
         {
-            assignList.Add(cardSprites[i]);
-            assignList.Add(cardSprites[i]);
+            if (sprite == null) continue;
+            string name = sprite.name;
+            string num = System.Text.RegularExpressions.Regex.Match(name, @"(\\d+)$").Value;
+            if (string.IsNullOrEmpty(num)) num = name; // 数字がなければ名前全体
+            if (!pairDict.ContainsKey(num)) pairDict[num] = new List<Sprite>();
+            pairDict[num].Add(sprite);
         }
+
+        // 各ペアごとに1枚ずつカードリストに追加（ペア数分）
+        List<Sprite> assignList = new List<Sprite>();
+        foreach (var kv in pairDict)
+        {
+            foreach (var sprite in kv.Value)
+            {
+                assignList.Add(sprite);
+            }
+        }
+
+        // カード枚数に合わせてリストを拡張（足りない場合はループで追加）
+        while (assignList.Count < cardImages.Count)
+        {
+            foreach (var kv in pairDict)
+            {
+                foreach (var sprite in kv.Value)
+                {
+                    if (assignList.Count >= cardImages.Count) break;
+                    assignList.Add(sprite);
+                }
+                if (assignList.Count >= cardImages.Count) break;
+            }
+        }
+        // 余分な分はカット
+        if (assignList.Count > cardImages.Count)
+            assignList.RemoveRange(cardImages.Count, assignList.Count - cardImages.Count);
 
         // シャッフル
         for (int i = 0; i < assignList.Count; i++)
@@ -52,14 +81,11 @@ public class GameManager : MonoBehaviour
             assignList[randomIndex] = temp;
         }
 
-        // 割り当て（assignListの数だけ割り当て、それ以降は無視）
+        // 割り当て
         for (int i = 0; i < cardImages.Count; i++)
         {
             Image img = cardImages[i].GetComponent<Image>();
-            if (i < assignList.Count)
-                img.sprite = assignList[i];
-            else
-                img.enabled = false; // 余ったカードは非表示にするなど
+            img.sprite = assignList[i];
         }
     }
 }
