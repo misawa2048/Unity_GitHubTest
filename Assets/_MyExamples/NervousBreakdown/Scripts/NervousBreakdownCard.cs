@@ -101,6 +101,7 @@ public class NervousBreakdownCard : MonoBehaviour, IPointerClickHandler
         if (image != null)
         {
             image.sprite = null;
+            image.enabled = false; // 画像を非表示にする
         }
     }
 
