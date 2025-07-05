@@ -5,6 +5,10 @@ public class GameManager : MonoBehaviour
 {
     // Inspectorで設定するカードスプライト群
     public Sprite[] cardSprites;
+    // カードの裏面スプライト
+    public Sprite cardBackSprite;
+    // 空のカードスプライト
+    public Sprite emptyCardSprite;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
