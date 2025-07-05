@@ -3,6 +3,8 @@ Assets/_MyExamples/NervousBreakdown/NervousBreakdown.unityに、神経衰弱のU
 
 Assets/_MyExamples/NervousBreakdown/ScriptsにGameManager.csを作成してください。
 GameManager.csの中に、Scene上のCardStageの下にあるCardImage群にランダムでカードのスプライトを割り当てる関数を用意してください。
+# GameManager.CardSpritesにスプライト群を追加
+# GameManager.CardStageに親オブジェクト（自分自身）を追加
 
 割り当てるカードは重複がないようにし、割り当てるカードがない場合は割り当てないようにしてください
 
