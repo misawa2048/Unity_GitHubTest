@@ -1,0 +1,23 @@
+Assets/_MyExamples/NervousBreakdown/NervousBreakdown.unityに、神経衰弱のUIを用意してあります。
+まず初めに、内容を説明してください。
+
+Assets/_MyExamples/NervousBreakdown/ScriptsにGameManager.csを作成してください。
+GameManager.csの中に、Scene上のCardStageの下にあるCardImage群にランダムでカードのスプライトを割り当てる関数を用意してください。
+
+割り当てるカードは重複がないようにし、割り当てるカードがない場合は割り当てないようにしてください
+
+GameManager内cardSpritesにはカードのスプライトが入っています。これらを全て使用してカード画像を割り当ててください。
+同じ画像のペアを用意するのではなく、スプライト名の後ろについている数字が同じであればペアとみなすようにしてください。
+
+Assets/_MyExamples/NervousBreakdown/Scripts/ に、カードの動作を定義するスクリプトを作成してください。
+カードに割り当てられたスプライトの初期値はカードの裏の絵柄です。スプライトを割り当てる関数、クリックされたときに割り当てられたスプライトを表示する関数、再度裏返した際に元の初期スプライトを表示する関数を作成してください。
+作成した関数にはコメントも付けてください。
+
+GameManagerでカードのスプライトを割り当てる際、Assets/_MyExamples/NervousBreakdown/Scripts/NervousBreakdownCard.cs内の関数を使用して割り当ててください
+
+# CardPrefabにNervousBreakdownCard.csを追加
+
+ゲーム開始時、シャッフル後のカードを裏向きのままにしてください
+
+カードを２枚めくって、同じ数字であればカードのSpriteをnullにし、違っていれば２枚とも裏返してください。
+シーンスタートでゲームスタート、全てのカードをnullにしたらゲームクリア。同じシーンをロードしてください。
