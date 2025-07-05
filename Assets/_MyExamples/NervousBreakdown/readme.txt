@@ -1,10 +1,23 @@
 Assets/_MyExamples/NervousBreakdown/NervousBreakdown.unityに、神経衰弱のUIを用意してあります。
 まず初めに、内容を説明してください。
 
-Assets/_MyExamples/NervousBreakdown/ScriptsにGameManager.csを作成してください。
-GameManager.csの中に、Scene上のCardStageの下にあるCardImage群にランダムでカードのスプライトを割り当てる関数を用意してください。
+Assets/_MyExamples/NervousBreakdown/Scripts/GameManager.csの中に、Scene上のCardStageの下にあるCardImage群にランダムでカードのスプライトを割り当てる関数を用意してください。
+割り当てるカードのスプライト群はAssets/_MyExamples/NervousBreakdown/Images/card_mensにあるものを使用してください。
+
+ゲームスタート時にカードのスプライトを割り当てる関数を実行してください
 
 割り当てるカードは重複がないようにし、割り当てるカードがない場合は割り当てないようにしてください
+＃カードスプライトが見つかりません。Resources/card_mens/ に画像を配置してください。");
+
+カードはリソースから割り当てるのではなく、GameManagerの変数としてスプライト群を設定できるようにしてください。
+
+カードの裏、空のカードのスプライトもGameManagerの変数として設定できるようにしてください
+
+神経衰弱のゲームにするために、ランダムに選ぶスプライトは２枚１組にしてください。カードが奇数の場合は最後の１枚を空のカードのスプライトにしてください。
+
+
+
+
 
 GameManager内cardSpritesにはカードのスプライトが入っています。これらを全て使用してカード画像を割り当ててください。
 同じ画像のペアを用意するのではなく、スプライト名の後ろについている数字が同じであればペアとみなすようにしてください。

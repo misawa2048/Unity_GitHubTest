@@ -420,6 +420,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86f590a4a3e084dbca8a8ca2c75d2490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cardSprites:
+  - {fileID: -8962194972212923577, guid: 8e1d515fa445a496da03b4f27b6b88fc, type: 3}
+  - {fileID: 2815471343526727393, guid: 8e1d515fa445a496da03b4f27b6b88fc, type: 3}
+  - {fileID: -4175461789224371967, guid: 8e1d515fa445a496da03b4f27b6b88fc, type: 3}
+  - {fileID: -8603552164717657732, guid: 8e1d515fa445a496da03b4f27b6b88fc, type: 3}
+  - {fileID: 4684297003595412959, guid: 8e1d515fa445a496da03b4f27b6b88fc, type: 3}
+  - {fileID: -1596142567236675861, guid: 8e1d515fa445a496da03b4f27b6b88fc, type: 3}
+  - {fileID: 2910772363083613892, guid: 8e1d515fa445a496da03b4f27b6b88fc, type: 3}
+  - {fileID: 103059102589744265, guid: 8e1d515fa445a496da03b4f27b6b88fc, type: 3}
+  cardBackSprite: {fileID: -8246103488371625927, guid: a13ad2396d1c64bb1b7d0d6e88dc8af3, type: 3}
+  emptyCardSprite: {fileID: 1426911182915860739, guid: 313b8b8f6f3234a189d0a1f7c8283099, type: 3}
 --- !u!224 &140499665 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5851414615987588720, guid: 04a08ddf326a4438bb9a95aa7aa4925f, type: 3}

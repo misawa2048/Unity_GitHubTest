@@ -40,14 +40,51 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        // CardStageの子オブジェクト（CardImage群）を取得
+        // カード枚数
+        int cardCount = cardStage.transform.childCount;
+        // 2枚1組で必要なペア数
+        int pairCount = cardCount / 2;
+        // 必要なスプライトをランダムに選ぶ
+        Sprite[] selectedSprites = new Sprite[pairCount];
+        System.Collections.Generic.List<int> usedIndices = new System.Collections.Generic.List<int>();
+        for (int i = 0; i < pairCount; i++)
+        {
+            int idx;
+            do {
+                idx = Random.Range(0, cardSprites.Length);
+            } while (usedIndices.Contains(idx) && usedIndices.Count < cardSprites.Length);
+            usedIndices.Add(idx);
+            selectedSprites[i] = cardSprites[idx];
+        }
+        // 2枚1組でリスト化
+        System.Collections.Generic.List<Sprite> cardList = new System.Collections.Generic.List<Sprite>();
+        foreach (var s in selectedSprites)
+        {
+            cardList.Add(s);
+            cardList.Add(s);
+        }
+        // 奇数の場合は空カード
+        if (cardList.Count < cardCount)
+        {
+            cardList.Add(emptyCardSprite);
+        }
+        // シャッフル
+        for (int i = 0; i < cardList.Count; i++)
+        {
+            int j = Random.Range(i, cardList.Count);
+            var tmp = cardList[i];
+            cardList[i] = cardList[j];
+            cardList[j] = tmp;
+        }
+        // 割り当て
+        int n = 0;
         foreach (Transform child in cardStage.transform)
         {
             // Imageコンポーネントがあれば割り当て
             Image img = child.GetComponent<Image>();
             if (img != null)
             {
-                img.sprite = cardSprites[Random.Range(0, cardSprites.Length)];
+                img.sprite = cardList[n];
             }
             // SpriteRendererの場合
             else
@@ -55,9 +92,10 @@ public class GameManager : MonoBehaviour
                 SpriteRenderer sr = child.GetComponent<SpriteRenderer>();
                 if (sr != null)
                 {
-                    sr.sprite = cardSprites[Random.Range(0, cardSprites.Length)];
+                    sr.sprite = cardList[n];
                 }
             }
+            n++;
         }
     }
 }
