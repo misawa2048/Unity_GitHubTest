@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 571fcff59279f2c4cbfdc3b9b4938c8d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 314028
+  packageName: 88 Constellations procedural Sky
+  packageVersion: 1.05
+  assetPath: Assets/Constellation/Scripts/lib/PipelineSelector.cs
+  uploadId: 758062

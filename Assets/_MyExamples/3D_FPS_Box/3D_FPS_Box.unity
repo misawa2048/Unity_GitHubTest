@@ -240,6 +240,59 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &876041400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 876041402}
+  - component: {fileID: 876041401}
+  m_Layer: 0
+  m_Name: PipelineSelector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &876041401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876041400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 571fcff59279f2c4cbfdc3b9b4938c8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_startPipeline: 2
+  m_URPAsset: {fileID: 11400000, guid: 4d98775a89ecd499fbc924ae507f123d, type: 2}
+  m_isChangable: 0
+  m_useBeareMessage: 1
+  m_bewareMessage: <color=#FFFF00>BEWARE! YOU MUST SET</color> <b>PorjectSettings
+    >Graphics > Default Render Pipeline</b> to <color=#00FFFF>{URP_ASSET_NAME}</color>
+    and <b>PorjectSettings > Quality > Render Pipeline Asset</b> to <color=#00FFFF>{URP_ASSET_NAME}</color>
+    <color=#FFFF00>BEFORE PLAY!</color>
+  m_messagePos: {x: 4, y: 0}
+--- !u!4 &876041402
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876041400}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &961739749
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,6 +441,7 @@ GameObject:
   - component: {fileID: 1834770696}
   - component: {fileID: 1834770695}
   - component: {fileID: 1834770694}
+  - component: {fileID: 1834770697}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -459,6 +513,22 @@ Transform:
   - {fileID: 1962814439}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1834770697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834770693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a899c3dc89ee4866bc450f06bfdca57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  rotSpeed: 90
+  rb: {fileID: 0}
+  mainCamera: {fileID: 0}
 --- !u!1 &1882446422
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,3 +876,4 @@ SceneRoots:
   - {fileID: 2102581692}
   - {fileID: 1834770696}
   - {fileID: 7647889667263041187}
+  - {fileID: 876041402}
