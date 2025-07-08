@@ -1477,6 +1477,19 @@ MonoBehaviour:
   notePrefab: {fileID: 1696135387480266064, guid: e6336ca2bc36f6b49b0e377113ed8350, type: 3}
   noteParent: {fileID: 1630467959}
   noteVelocity: {x: 0, y: 0, z: -10}
+  keyInputs:
+  - keyCode: 97
+    lightLine: {fileID: 791663553}
+    inputCollider: {fileID: 800073372}
+  - keyCode: 115
+    lightLine: {fileID: 1534934378}
+    inputCollider: {fileID: 803015565}
+  - keyCode: 100
+    lightLine: {fileID: 1007606166}
+    inputCollider: {fileID: 240896764}
+  - keyCode: 102
+    lightLine: {fileID: 866267418}
+    inputCollider: {fileID: 1769268368}
 --- !u!1 &1755639752
 GameObject:
   m_ObjectHideFlags: 0
