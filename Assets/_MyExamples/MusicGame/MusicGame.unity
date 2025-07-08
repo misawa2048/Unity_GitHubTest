@@ -1478,7 +1478,7 @@ MonoBehaviour:
   noteParent: {fileID: 1630467959}
   noteVelocity: {x: 0, y: 0, z: -10}
   keyInputs:
-  - keyCode: 276
+  - keyCode: 97
     lightLine: {fileID: 791663553}
     inputCollider: {fileID: 800073372}
   - keyCode: 115
