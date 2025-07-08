@@ -21,7 +21,14 @@ public class NotesGenerator : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        // ゲームスタート時にすべてのラインおよびコライダーを非表示にする
+        foreach (KeyInputData keyInput in keyInputs)
+        {
+            keyInput.lightLine?.SetActive(false);
+            
+            if (keyInput.inputCollider != null)
+                keyInput.inputCollider.enabled = false;
+        }
     }
 
     // Update is called once per frame
@@ -57,9 +64,7 @@ public class NotesGenerator : MonoBehaviour
                 // 生成したノートにRigidbodyがあれば初速を与える
                 Rigidbody noteRb = note.GetComponent<Rigidbody>();
                 if (noteRb != null)
-                {
                     noteRb.linearVelocity = noteVelocity;
-                }
                 
                 // 10秒後にノートオブジェクトを削除
                 Destroy(note, 10f);
@@ -74,25 +79,17 @@ public class NotesGenerator : MonoBehaviour
             if (Input.GetKeyDown(keyInput.keyCode))
             {
                 // ラインを光らせる
-                if (keyInput.lightLine != null)
-                {
-                    keyInput.lightLine.SetActive(true);
-                }
+                keyInput.lightLine?.SetActive(true);
                 
                 // Colliderを一瞬だけOnにする
                 if (keyInput.inputCollider != null)
-                {
                     StartCoroutine(ActivateColliderBriefly(keyInput.inputCollider));
-                }
             }
             
             if (Input.GetKeyUp(keyInput.keyCode))
             {
                 // ラインを消す
-                if (keyInput.lightLine != null)
-                {
-                    keyInput.lightLine.SetActive(false);
-                }
+                keyInput.lightLine?.SetActive(false);
             }
         }
     }
