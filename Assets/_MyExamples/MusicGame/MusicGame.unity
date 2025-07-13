@@ -430,7 +430,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.34
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -1652,7 +1652,7 @@ MonoBehaviour:
   m_startPipeline: 2
   m_URPAsset: {fileID: 11400000, guid: a562a6a7b0b574b44b840d9b1756512f, type: 2}
   m_isChangable: 0
-  m_useBeareMessage: 1
+  m_useBeareMessage: 0
   m_bewareMessage: <color=#FFFF00>BEWARE! YOU MUST SET</color> <b>PorjectSettings
     >Graphics > Default Render Pipeline</b> to <color=#00FFFF>{URP_ASSET_NAME}</color>
     and <b>PorjectSettings > Quality > Render Pipeline Asset</b> to <color=#00FFFF>{URP_ASSET_NAME}</color>
