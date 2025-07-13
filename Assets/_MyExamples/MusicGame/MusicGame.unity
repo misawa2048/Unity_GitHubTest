@@ -2081,6 +2081,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 625ee4969f2ecbd4bacc15d6c2adf9b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicClip: {fileID: 8300000, guid: 2997feaf90298a649b11154bd2ae95a9, type: 3}
+  scoreJson: {fileID: 4900000, guid: d055e5918c5e5cd4291acce739df0760, type: 3}
   notePrefab: {fileID: 1696135387480266064, guid: e6336ca2bc36f6b49b0e377113ed8350, type: 3}
   noteParent: {fileID: 1630467959}
   noteVelocity: {x: 0, y: 0, z: -10}
