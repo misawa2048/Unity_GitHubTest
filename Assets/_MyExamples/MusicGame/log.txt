@@ -199,3 +199,67 @@ MusicGame開発ログ
 - 難易度調整機能
 - コンボシステム
 - ハイスコア機能
+
+### 12. Json譜面データ形式クラス作成・データ変換要求
+ユーザー: 「scoreJsonにはAssets\_MyExamples\MusicGame\ChartFiles\NHKWaltz.jsonが入っています。このJSONファイルと同じ形式のクラスを作成し、Jsonファイルをオブジェクトに変更してください」
+
+実装内容:
+- ChartData/NoteDataクラスをNHKWaltz.jsonの全メンバーに合わせて作成
+- JsonUtility.FromJsonでscoreJsonをChartDataオブジェクトに変換
+
+### 13. Json全メンバー反映要求
+ユーザー: 「JsonのすべてのメンバーをChartDataおよびNoteDataクラスに入れてください」
+
+実装内容:
+- ChartData/NoteDataクラスにname, format, bpm, division, offset_ms, maxLanes, notes, time_ms, lane, type, notesを追加
+
+### 14. ノート配列ソート要求
+ユーザー: 「chartData = JsonUtility.FromJson<ChartData>(scoreJson.text);でデータを読み込んだ後、念のためpublic NoteData[] notesをtime_msの値が小さい順にソートしてください」
+
+実装内容:
+- Array.SortでchartData.notesをtime_ms昇順にソート
+
+### 15. GenerateNote()引数id化・レーン指定生成要求
+ユーザー: 「GenerateNote()に引数idを作成し、Transform randomChild = noteParent.GetChild(id);からノートを出すようにしてください」
+
+実装内容:
+- GenerateNote(int id)に変更し、指定idの子オブジェクトからノート生成
+- Update()のランダム生成部分もGenerateNote(randomIndex)に変更
+
+### 16. ランダム生成廃止・譜面データ準拠生成要求
+ユーザー: 「Update()内でランダムにノートを作るのをやめ、Jsonから変換した譜面データに合わせてノートを出すようにしてください」
+
+実装内容:
+- playTimeとnoteIndexで譜面進行管理
+- chartData.notes[noteIndex].time_msに合わせてノート生成
+
+### 17. ノート生成処理コルーチン化要求
+ユーザー: 「Json譜面データに従ってノートを出す部分を、Updateからコルーチンに映してください」
+
+実装内容:
+- PlayChartCoroutine()で譜面データに従ってノート生成
+- Start()でコルーチン開始
+- Update()はキー入力処理のみ
+
+### 18. 曲再生タイミング調整・コルーチン分離要求
+ユーザー: 「コルーチンの先頭でmusicClipを再生し、少し待ってからノートの生成を開始してください。待つ時間は変数を用意して可変できるようにしてください」
+
+実装内容:
+- musicStartDelay変数追加（Inspectorで可変）
+- コルーチン先頭でWaitForSeconds(musicStartDelay)後に曲再生
+- AudioSource自動取得/生成
+
+### 19. ノート生成・曲再生コルーチン分離要求
+ユーザー: 「PlayChartCoroutine()は即座にノートの生成を開始するようにし、それとは別に、musicStartDelay秒待ってから曲を流すコルーチンを作成して下さい」
+
+実装内容:
+- PlayChartCoroutineは即座にノート生成開始
+- PlayMusicCoroutineでmusicStartDelay秒待ってから曲再生
+- Start()で両方のコルーチンを開始
+
+### 20. ノートタイミング補正要求
+ユーザー: 「曲に対して若干ノートがズレていくようなので、time_msを補正するための変数を用意し、time_msに掛けて使用してください。変数のデフォルト値は1.0で、0.9-1.1の間の値をとるようにしてください」
+
+実装内容:
+- timeMsCorrection変数追加（Inspectorで0.9～1.1の範囲で調整可能）
+- PlayChartCoroutineでtime_ms * timeMsCorrectionを使用

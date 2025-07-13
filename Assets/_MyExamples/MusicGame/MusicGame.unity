@@ -2083,6 +2083,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicClip: {fileID: 8300000, guid: 2997feaf90298a649b11154bd2ae95a9, type: 3}
   scoreJson: {fileID: 4900000, guid: d055e5918c5e5cd4291acce739df0760, type: 3}
+  chartData:
+    name: 
+    format: 
+    bpm: 0
+    division: 0
+    offset_ms: 0
+    maxLanes: 0
+    notes: []
   notePrefab: {fileID: 1696135387480266064, guid: e6336ca2bc36f6b49b0e377113ed8350, type: 3}
   noteParent: {fileID: 1630467959}
   noteVelocity: {x: 0, y: 0, z: -10}
@@ -2101,6 +2109,8 @@ MonoBehaviour:
     inputCollider: {fileID: 1769268368}
   scoreTextTMP: {fileID: 39255204}
   currentScore: 0
+  musicStartDelay: 2.4
+  timeMsCorrection: 0.998
 --- !u!1 &1740722880
 GameObject:
   m_ObjectHideFlags: 0
