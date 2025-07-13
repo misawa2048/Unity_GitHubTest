@@ -12,7 +12,11 @@ public class KeyInputData
 public class NotesGenerator : MonoBehaviour
 {
     public static NotesGenerator Instance { get; private set; } // シングルトンパターン
-    
+
+    [Header("Music & Score Files")]
+    public AudioClip musicClip; // 音源ファイル(mp3)を指定
+    public TextAsset scoreJson; // 譜面ファイル(json)を指定
+
     public GameObject notePrefab; // ノートのプレハブを保持する変数
     public Transform noteParent; // ノートの親オブジェクトを指定する変数
     public Vector3 noteVelocity = new Vector3(0, 0, -10f); // ノートの移動速度（物理演算用）

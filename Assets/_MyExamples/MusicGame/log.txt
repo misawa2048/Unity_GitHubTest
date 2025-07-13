@@ -175,6 +175,17 @@ MusicGame開発ログ
 5. 自動的なTriggerCollider設定
 6. 重複ヒット防止機能
 
+
+### 11. 音源・譜面ファイル指定プロパティ追加要求
+ユーザー: 「音源ファイル(mp3)と、譜面ファイル(json)を指定するプロパティを追加して」
+
+実装内容:
+- NotesGenerator.csに以下のプロパティを追加
+  - public AudioClip musicClip; // Inspectorで音源ファイル(mp3)を指定
+  - public TextAsset scoreJson; // Inspectorで譜面ファイル(json)を指定
+- [Header("Music & Score Files")]でInspector表示を整理
+- Inspectorからmp3ファイルとjsonファイルを割り当て可能
+
 ## 技術的な改善点（追加分）
 - より効率的なスコア管理システム
 - TextMeshProによる高品質なテキスト表示
